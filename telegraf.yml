@@ -1,0 +1,7 @@
+- name: Install telegraf and send data to influxdb
+  hosts: linux
+  become: true
+
+  tasks:
+    - name: Check connection
+      ping:
