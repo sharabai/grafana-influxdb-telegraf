@@ -2,7 +2,7 @@
 
 ## Description
 
-This project automates the installation and configuration of Telegraf on Linux servers with config to send data to InfluxDB, which in turn is being used by Grafana for data vizualization. Grafana and InfluxDB are run using Docker Compose.
+This project automates the installation and configuration of Telegraf on Linux servers with config to send data to InfluxDB, which in turn is being used by Grafana for data vizualization. Grafana and InfluxDB are run using Docker Compose. The Grafana and InfluxDB still require to be manually connected. Telegraf collects basic system metrics (CPU, memory, disk, network, etc.)
 
 ## License
 
