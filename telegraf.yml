@@ -3,34 +3,5 @@
   hosts: linux
   become: true
 
-  tasks:
-    - name: Add InfluxData GPG key
-      apt_key:
-        url: https://repos.influxdata.com/influxdata-archive.key
-        keyring: /etc/apt/trusted.gpg.d/influxdata-archive.gpg
-
-    - name: Add InfluxData repo
-      apt_repository:
-        repo: "deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive.gpg] https://repos.influxdata.com/debian stable main"
-        state: present
-        filename: influxdata
-
-    - name: Install telegraf
-      apt:
-        name: telegraf
-        update_cache: yes
-
-    - name: Create Telegraf conf
-      template:
-        src: telegraf.conf.j2
-        dest: /etc/telegraf/telegraf.conf
-        owner: telegraf
-        group: telegraf
-        mode: "0644"
-      notify: restart telegraf
-
-    - name: Set up Telegraf service
-      service:
-        name: telegraf
-        state: started
-        enabled: yes
+  roles:
+    - telegraf
